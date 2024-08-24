@@ -1,0 +1,45 @@
+Non-Commercial License
+Version 1.0
+
+Copyright (c) 2024 Dmytro Zykov
+
+This software is licensed under the terms below:
+
+1. License Grant
+   Permission is hereby granted to any person obtaining a copy of this
+   software and associated documentation files (the "Software"), to use,
+   copy, modify, and distribute copies of the Software, subject to the
+   following conditions:
+
+   a. Non-Commercial Use Only
+      The Software may be used solely for personal, educational, or
+      non-commercial purposes. **Commercial use of the Software is
+      strictly prohibited.** Commercial use includes, but is not limited
+      to, incorporation into a product for sale, use in a commercial
+      setting, or use that generates any form of revenue or commercial
+      advantage.
+
+   b. Attribution
+      The above copyright notice and this permission notice shall be
+      included in all copies or substantial portions of the Software.
+
+2. Disclaimer of Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+   CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+   TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE
+   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+3. Termination
+   This license is effective until terminated. Your rights under this
+   license will terminate automatically without notice from the author
+   if you fail to comply with the terms. Upon termination, you must cease
+   all use, destroy all copies, and certify in writing to the author that
+   you have done so.
+
+4. Governing Law
+   This License shall be governed by and construed in accordance with the
+   laws of the jurisdiction in which the author resides, excluding its
+   conflicts of law principles.
