@@ -1,5 +1,7 @@
 add_executable(${PROJECT_NAME}
-    src/main.cpp
+        src/main.cpp
+        include/resource/resource_manager.h
+        src/resource/resource_manager.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
