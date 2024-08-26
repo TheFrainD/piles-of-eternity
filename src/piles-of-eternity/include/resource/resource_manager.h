@@ -10,8 +10,8 @@ public:
     ResourceManager() = default;
 
     template <typename ResourceType, typename LoaderType, typename... Args>
-    std::shared_ptr<ResourceType> loadResource(const std::string &name,
-                                               Args &&...args) {
+    std::shared_ptr<ResourceType> load_resource(const std::string &name,
+                                                Args &&...args) {
         if (resources_.contains(name)) {
             return std::static_pointer_cast<ResourceType>(resources_[name]);
         }
@@ -25,7 +25,7 @@ public:
     }
 
     template <typename ResourceType>
-    std::shared_ptr<ResourceType> getResource(const std::string &name) {
+    std::shared_ptr<ResourceType> get_resource(const std::string &name) {
         if (resources_.contains(name)) {
             return std::static_pointer_cast<std::shared_ptr<ResourceType>>(
                 resources_[name]);
@@ -37,7 +37,5 @@ public:
 private:
     std::unordered_map<std::string, std::shared_ptr<void>> resources_;
 };
-
-extern ResourceManager g_resource_manager;
 
 }  // namespace res
