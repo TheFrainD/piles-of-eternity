@@ -7,6 +7,8 @@ add_executable(${PROJECT_NAME}
         src/graphics/window.cpp
         include/graphics/graphics.h
         src/graphics/graphics.cpp
+        include/graphics/texture.h
+        src/graphics/texture.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -18,6 +20,7 @@ find_package(EnTT REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(stx REQUIRED)
 find_package(gsl-lite REQUIRED)
+find_package(stb REQUIRED)
 
 target_link_libraries(${PROJECT_NAME}
         SDL2::SDL2
@@ -26,4 +29,5 @@ target_link_libraries(${PROJECT_NAME}
         gsl::gsl-lite
         EnTT::EnTT
         Eigen3::Eigen
-        stx::stx)
+        stx::stx
+        stb::stb)

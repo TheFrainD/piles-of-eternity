@@ -11,9 +11,11 @@ Game::RunStatus Game::run(int argc, char *argv[]) {
     graphics_settings.window_settings = window_settings;
 
     try {
-        graphics_ = std::make_unique<grp::Graphics>(graphics_settings);
+        graphics_ = std::make_unique<grp::Graphics>(graphics_settings,
+                                                    resource_manager_);
     } catch (const grp::Graphics::InitializationError &err) {
-        std::cerr << "Graphics subsystem failed to initialize!\n" << err.what();
+        std::cerr << "Graphics subsystem failed to initialize!\n"
+                  << err.what() << '\n';
         return RunStatus::Fail;
     }
 

@@ -23,20 +23,16 @@ Window::Window(Settings settings) {
         throw InitializationError {fmt::format(
             "SDL window initialization failed! SDL Error: {}", SDL_GetError())};
     }
-
-    screen_surface_ = SDL_GetWindowSurface(window_);
-}
-
-void Window::clear() const {
-    SDL_FillRect(screen_surface_, NULL,
-                 SDL_MapRGB(screen_surface_->format, 0xFF, 0xFF, 0xFF));
 }
 
 void Window::update() const { SDL_UpdateWindowSurface(window_); }
 
 Window::~Window() {
     SDL_DestroyWindow(window_);
-    window_         = nullptr;
-    screen_surface_ = nullptr;
+    window_ = nullptr;
+}
+
+SDL_Renderer *Window::create_renderer() {
+    return SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
 }
 }  // namespace grp

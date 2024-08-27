@@ -40,12 +40,11 @@ public:
     Window &operator=(const Window &) = delete;
     Window &operator=(Window &&)      = delete;
 
-    void clear() const;
-
     void update() const;
+    
+    SDL_Renderer *create_renderer();
 
 private:
     SDL_Window *window_;
-    SDL_Surface *screen_surface_;
 };
 }  // namespace grp

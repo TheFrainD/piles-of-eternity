@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "graphics/window.h"
+#include "resource/resource_manager.h"
 
 namespace grp {
 class Graphics {
@@ -16,12 +17,14 @@ public:
         Window::Settings window_settings;
     };
 
-    explicit Graphics(Settings settings);
+    explicit Graphics(Settings settings,
+                      res::ResourceManager &resource_manager);
     ~Graphics();
 
     void render();
 
 private:
     std::unique_ptr<Window> window_;
+    SDL_Renderer *renderer_;
 };
 }  // namespace grp
