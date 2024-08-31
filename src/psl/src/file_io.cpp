@@ -1,8 +1,8 @@
-#include "file_io.h"
+#include "psl/file_io.h"
 
 #include <fstream>
 
-namespace file_io {
+namespace psl {
 namespace fs = std::filesystem;
 
 std::optional<std::vector<char>> load_file(const fs::path &path) noexcept {
@@ -16,7 +16,7 @@ std::optional<std::vector<char>> load_file(const fs::path &path) noexcept {
     return buffer;
 }
 
-std::variant<std::vector<fs::path>, std::string_view> find_files_with_extension(
+Result<std::vector<std::filesystem::path>> find_files_with_extension(
     const fs::path &directory, const std::string_view &extension,
     bool recursive) noexcept {
     std::vector<fs::path> files;
@@ -44,4 +44,4 @@ std::variant<std::vector<fs::path>, std::string_view> find_files_with_extension(
         return err.what();
     }
 }
-}  // namespace file_io
+}  // namespace psl
