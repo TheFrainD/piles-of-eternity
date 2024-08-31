@@ -27,21 +27,23 @@ Result<std::vector<std::filesystem::path>> find_files_with_extension(
         }
     };
 
+    using namespace std::literals;
+
     try {
         if (recursive) {
             for (const auto &entry :
                  fs::recursive_directory_iterator(directory)) {
                 process_entry(entry);
             }
-            return files;
+            return Ok(files);
         }
 
         for (const auto &entry : fs::directory_iterator(directory)) {
             process_entry(entry);
         }
-        return files;
+        return Ok(files);
     } catch (const fs::filesystem_error &err) {
-        return err.what();
+        return Err(std::string(err.what()));
     }
 }
 }  // namespace psl

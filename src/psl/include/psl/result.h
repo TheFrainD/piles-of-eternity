@@ -20,20 +20,26 @@ public:
 };
 
 template <typename T>
+struct Ok {
+    Ok(const T &value) noexcept : value(value) {}
+    Ok(T &&value) noexcept : value(std::move(value)) {}
+
+    T value;
+};
+
+template <typename T>
+struct Err {
+    Err(const T &value) noexcept : value(value) {}
+    Err(T &&value) noexcept : value(std::move(value)) {}
+
+    T value;
+};
+
+template <typename T, typename E = std::string>
 class Result {
 public:
-    Result(const T &value) noexcept : value_(value) {}
-
-    Result(T &&value) noexcept : value_(std::move(value)) {}
-
-    Result(const std::string &error_message) noexcept
-        : error_message_(error_message) {}
-
-    Result(std::string &&error_message) noexcept
-        : error_message_(std::move(error_message)) {}
-
-    Result(const char *error_message) noexcept
-        : error_message_(error_message) {}
+    Result(Ok<T> &&ok) noexcept : value_(std::move(ok.value)) {}
+    Result(Err<E> &&err) noexcept : error_(std::move(err.value)) {}
 
     bool is_error() noexcept { return !value_.has_value(); }
 
@@ -51,16 +57,16 @@ public:
         return std::move(*value_);
     }
 
-    std::string error() {
+    E error() {
         if (!is_error()) {
             throw ResultHasValueError {};
         }
-        return error_message_;
+        return std::move(error_);
     }
 
 private:
     std::optional<T> value_;
-    std::string error_message_;
+    E error_;
 };
 
 }  // namespace psl
